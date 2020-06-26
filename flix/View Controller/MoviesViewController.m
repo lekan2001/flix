@@ -19,6 +19,9 @@
 
 @property(nonatomic, strong)UIRefreshControl *refreshControl;
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+
 @end
 
 @implementation MoviesViewController
@@ -30,10 +33,13 @@
     self.tableView.delegate = self;
     [self fetchMovies];
     self.refreshControl = [[UIRefreshControl alloc]init];
+    self.activityIndicator = [[UIActivityIndicatorView alloc]init];
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     [self.tableView addSubview:self.refreshControl];
     [_refreshControl setTintColor:[UIColor redColor]];
+    
+    
     //[_refreshControl.backgroundColor.CGColor ]
     
     // Do any additional setup after loading the view.
@@ -44,10 +50,14 @@
 
 
 -(void) fetchMovies{
+    [self.activityIndicator startAnimating];
+    
+    
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
       NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
       NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
       NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+          
              if (error != nil) {
                  NSLog(@"%@", [error localizedDescription]);
              }
@@ -59,10 +69,13 @@
                  // TODO: Get the array of movies
      
                  self.movies = dataDictionary[@"results"];
+                 [self.activityIndicator stopAnimating];
+
                  for (NSDictionary *movie in self.movies) {
                      
                      NSLog(@"%@", movie[@"title"]);
                  }
+                
                  [self.tableView reloadData];
                  
                  
@@ -71,7 +84,9 @@
                  // TODO: Reload your table view data
              }
           [self.refreshControl endRefreshing];
-         }];
+          
+          
+      }];
       [task resume];
 }
 -(void)didReceiveMemoryWarning{
@@ -110,9 +125,6 @@
     
     cell.posterView.image = nil;
     [cell.posterView setImageWithURL:posterURL];
-    
-    
-    
     
     
     

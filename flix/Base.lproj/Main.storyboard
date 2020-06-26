@@ -25,6 +25,11 @@
                                 <color key="sectionIndexColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="vuP-4l-DLJ">
+                                    <rect key="frame" x="0.0" y="224" width="414" height="37"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="168" id="cHh-dj-LOH" customClass="MovieCell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="168"/>
@@ -73,6 +78,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Movies" id="Exe-a2-f4b"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="vuP-4l-DLJ" id="rFK-3u-SZC"/>
                         <outlet property="tableView" destination="jvT-sV-CSh" id="wpG-Oh-EJN"/>
                     </connections>
                 </viewController>
