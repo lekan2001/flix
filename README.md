@@ -41,7 +41,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-<img src= "http://recordit.co/mqB1YjhVt4" width=250 ><br>
+<img src= "https://recordit.co/1hYawwoH2x" width=250 ><br>
  
 
 
