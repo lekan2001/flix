@@ -59,6 +59,23 @@
       NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
           
              if (error != nil) {
+                 
+               UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Movie Not Found" preferredStyle:(UIAlertControllerStyleAlert)];
+                 UIAlertAction *cancelButton = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                     
+                 }];
+                 UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                      [self.tableView reloadData];
+                 }];
+                 
+                 [alert addAction:okAction];
+                 [alert addAction:cancelButton];
+                 [self presentViewController:alert animated:YES completion:^{
+                     
+                 }];
+                 
+//                 [self presentViewController:alert animated:YES completion:<#^(void)completion#>]
+                 
                  NSLog(@"%@", [error localizedDescription]);
              }
              else {
@@ -74,6 +91,7 @@
                  for (NSDictionary *movie in self.movies) {
                      
                      NSLog(@"%@", movie[@"title"]);
+                    // NSLog(@"")
                  }
                 
                  [self.tableView reloadData];

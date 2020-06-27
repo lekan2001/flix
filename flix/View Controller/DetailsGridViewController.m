@@ -1,30 +1,30 @@
 //
-//  DetailsViewController.m
+//  DetailsGridViewController.m
 //  flix
 //
-//  Created by Olalekan Abdurazaq Adisa on 6/25/20.
+//  Created by Olalekan Abdurazaq Adisa on 6/26/20.
 //  Copyright © 2020 Facebook University. All rights reserved.
 //
 
-#import "DetailsViewController.h"
+#import "DetailsGridViewController.h"
 #import "UIImageView+AFNetworking.h"
-@interface DetailsViewController ()
+@interface DetailsGridViewController ()
+
 @property (weak, nonatomic) IBOutlet UIImageView *backDropView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *posterView;
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *synopsisLabel;
-
-
-
 
 @end
 
-@implementation DetailsViewController
+@implementation DetailsGridViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = self.movie[@"poster_path"];
@@ -32,26 +32,19 @@
     
     NSURL * posterURL = [NSURL URLWithString:fullPosterURLStrring];
     [self.posterView setImageWithURL:posterURL];
+    
    
-    
-    
-    //NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *backdropURLString = self.movie[@"backdrop_path"];
-    NSString *fullbackdropURLStrring = [baseURLString stringByAppendingString:backdropURLString];
+    NSString *fullBackDropURLStrring = [baseURLString stringByAppendingString:backdropURLString];
     
-    NSURL * backdropURL = [NSURL URLWithString:fullbackdropURLStrring];
-    
-    [self.backDropView setImageWithURL:backdropURL];
-    
+    NSURL * backDropURL = [NSURL URLWithString:fullBackDropURLStrring];
+    [self.backDropView setImageWithURL:backDropURL];
     self.titleLabel.text = self.movie[@"title"];
     self.synopsisLabel.text = self.movie[@"overview"];
-    //[self.titleLabel sizeToFit];
-    [self.synopsisLabel sizeToFit];
     
+    [self.titleLabel sizeToFit];
+    [self.synopsisLabel sizeToFit];
 }
-
-
-//specific movie id and api getmovies api
 
 /*
 #pragma mark - Navigation

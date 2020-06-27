@@ -86,7 +86,7 @@
             </objects>
             <point key="canvasLocation" x="137" y="901"/>
         </scene>
-        <!--Movies Grid View Controller-->
+        <!--Movies-->
         <scene sceneID="vKL-j4-60w">
             <objects>
                 <viewController id="8aZ-Lj-eoR" customClass="MoviesGridViewController" sceneMemberID="viewController">
@@ -123,6 +123,7 @@
                                         <size key="customSize" width="165" height="239"/>
                                         <connections>
                                             <outlet property="posterView" destination="udo-BG-WTt" id="7kt-29-xKr"/>
+                                            <segue destination="uW2-aM-npB" kind="show" id="haE-We-dIU"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -131,7 +132,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="jtY-3w-aa3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="FjK-sV-Aa5"/>
+                    <navigationItem key="navigationItem" title="Movies" id="FjK-sV-Aa5"/>
                     <connections>
                         <outlet property="collectionView" destination="CwH-6I-lni" id="agj-hU-eUu"/>
                     </connections>
@@ -174,6 +175,19 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdQ-lq-OtJ">
+                                        <rect key="frame" x="166" y="61" width="42" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="play.fill" catalog="system">
+                                            <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BQs-l5-xZm" kind="show" id="LcB-2y-4v9"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Qgi-lf-4BJ"/>
@@ -193,7 +207,91 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vv0-M0-u0e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="1719"/>
+            <point key="canvasLocation" x="136.80000000000001" y="1718.7192118226601"/>
+        </scene>
+        <!--Movie Trailer View Controller-->
+        <scene sceneID="dnF-eg-iZA">
+            <objects>
+                <viewController id="BQs-l5-xZm" customClass="MovieTrailerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7FL-gd-jM2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9kf-tO-qgc">
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Z6v-Ig-uML"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uYm-Mj-eNz"/>
+                    <connections>
+                        <outlet property="trailerView" destination="9kf-tO-qgc" id="mNl-Ny-nJt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="byG-Tw-C7T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="2588.423645320197"/>
+        </scene>
+        <!--Details Grid View Controller-->
+        <scene sceneID="7QN-2w-6Cw">
+            <objects>
+                <viewController id="uW2-aM-npB" customClass="DetailsGridViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xc3-P7-9Cz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E0N-Xl-vWb">
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t4g-gV-EO1">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="172"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2As-HH-x1x">
+                                        <rect key="frame" x="0.0" y="115" width="144" height="186"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brq-ON-74Z">
+                                        <rect key="frame" x="152" y="247" width="202" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Synopsis" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aF-lv-UJt">
+                                        <rect key="frame" x="8" y="339" width="359" height="158"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="BfL-rH-fUO"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="U30-3c-CKT"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zFm-CA-34F"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EqO-NZ-KsX"/>
+                    <connections>
+                        <outlet property="backDropView" destination="t4g-gV-EO1" id="OMm-um-BhE"/>
+                        <outlet property="posterView" destination="2As-HH-x1x" id="BQ4-Tm-ut8"/>
+                        <outlet property="synopsisLabel" destination="1aF-lv-UJt" id="3gI-6I-f3n"/>
+                        <outlet property="titleLabel" destination="brq-ON-74Z" id="hf1-nx-rwg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pFC-gu-ecZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1789.5999999999999" y="1718.7192118226601"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kbg-6P-tPa">
@@ -215,11 +313,11 @@
             </objects>
             <point key="canvasLocation" x="1791" y="-768"/>
         </scene>
-        <!--Home-->
+        <!--TABLE-->
         <scene sceneID="WVo-T5-ylf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wWg-YD-7sP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="FKs-b4-wiy">
+                    <tabBarItem key="tabBarItem" title="TABLE" image="rectangle.grid.1x2.fill" catalog="system" id="FKs-b4-wiy">
                         <color key="badgeColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -244,15 +342,18 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
-        <!--Item-->
+        <!--GRID-->
         <scene sceneID="UFD-oh-gHU">
             <objects>
                 <navigationController id="mTs-gn-Kw0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="tS3-3e-oQT"/>
+                    <tabBarItem key="tabBarItem" title="GRID" image="square.grid.3x2" catalog="system" id="tS3-3e-oQT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gM6-0i-wAw">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="8aZ-Lj-eoR" kind="relationship" relationship="rootViewController" id="45j-5K-XvH"/>
@@ -264,6 +365,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="rectangle.grid.1x2.fill" catalog="system" width="128" height="101"/>
+        <image name="square.grid.3x2" catalog="system" width="128" height="80"/>
     </resources>
 </document>
