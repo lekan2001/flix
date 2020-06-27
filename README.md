@@ -40,7 +40,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-<img src= "https://recordit.co/tPgUU2xzyD" width=350 ><br>
+<img src= "http://g.recordit.co/mqB1YjhVt4.gif" width=350 ><br>
  
 
 
