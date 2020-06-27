@@ -40,9 +40,7 @@
     [_refreshControl setTintColor:[UIColor redColor]];
     
     
-    //[_refreshControl.backgroundColor.CGColor ]
-    
-    // Do any additional setup after loading the view.
+   
     
   
 }
@@ -74,7 +72,6 @@
                      
                  }];
                  
-//                 [self presentViewController:alert animated:YES completion:<#^(void)completion#>]
                  
                  NSLog(@"%@", [error localizedDescription]);
              }
@@ -144,12 +141,6 @@
     cell.posterView.image = nil;
     [cell.posterView setImageWithURL:posterURL];
     
-    
-    
-    //cell.pos
-    
-    //    cell.textLabel.text = movie[@"title"];
-    //cell.textLabel.text = [NSString stringWithFormat:@"row: %d, section %d", indexPath.row,indexPath.section];
     return cell;
     
 }
@@ -168,9 +159,8 @@
     detailsViewController.movie = movie;
     
     
-    NSLog(@"%@", tappedCell );
-//     Get the new view controller using [segue destinationViewController].
-     //Pass the selected object to the new view controller.
+  //  NSLog(@"%@", tappedCell );
+
 }
 //*/
 
